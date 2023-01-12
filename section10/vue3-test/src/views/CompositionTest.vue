@@ -1,17 +1,30 @@
 <template>
   <div>
     CompositionTest
+    <p>{{ name }}</p>
+    <p>{{ age }}</p>
   </div>
 </template>
 
 <script>
 export default {
-  data() {
-
-  },
   setup() {
+    let name = '大谷';
+    const age = 30;
+
     console.log('setup');
     console.log(this);
+
+    return {
+      name,
+      age,
+    }
+  },
+  data() {
+    return {
+      number: 1,
+      sports: 'サッカー',
+    }
   },
   created() {
     console.log('created');
