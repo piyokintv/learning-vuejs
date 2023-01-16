@@ -3,12 +3,14 @@
     CompositionTest
     <p>{{ name }}</p>
     <p>{{ age }}</p>
-    <p>{{ nameRef }}</p>
+    <p>ref: {{ nameRef }}</p>
+    <p>reactive: {{ book.title }}</p>
+    <p>reactive: {{ book.author[0] }}</p>
   </div>
 </template>
 
 <script>
-import { ref } from 'vue';
+import { ref, reactive } from 'vue';
 
 export default {
   setup() {
@@ -16,6 +18,11 @@ export default {
     const age = 30;
 
     const nameRef = ref('錦織');
+
+    const book = reactive({
+      title: 'タイトル',
+      author: ['大谷', '伊藤'],
+    });
 
     console.log('setup');
     console.log(this);
@@ -26,6 +33,7 @@ export default {
       name,
       age,
       nameRef,
+      book,
     }
   },
   data() {
