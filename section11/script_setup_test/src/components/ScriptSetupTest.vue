@@ -5,6 +5,8 @@ const props = defineProps({
   title: String,
 })
 
+const emit = defineEmits(['custom-event'])
+
 const count = ref(0);
 
 const increment = () => {
@@ -17,7 +19,8 @@ const decrement = () => {
 </script>
 
 <template>
-  <span>{{ props.title }}</span>
+  <span>{{ props.title }}</span><br>
+  <button @click="emit('custom-event', '子からの値')">Emit実行</button>
   <h1>{{ count }}</h1>
   <button @click="increment">Increment</button>
   <button @click="decrement">Decrement</button>
